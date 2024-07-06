@@ -38,20 +38,52 @@ function App() {
 function UserCard() {
   const user = {
     name: "Ivo",
-    age: 15,
+    age: 19,
     isMale: false,
     imgSrc:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+    favouriteColor: "orange",
   };
-  // додати alt до img
+
+  const nameStyle = {
+    color: "red",
+    backgroundColor: "green",
+    border: "2px solid yellow",
+  };
+
+  const imgBorderStyle = {
+    border: `2px solid ${user.favouriteColor}`,
+  };
+
+  const ageStyle = {
+    color: user.age >= 18 ? "blue" : "green",
+  };
+
   return (
     <article className="userCard">
-      <h2 className="userName">{user.name}</h2>
-      <img className="userImg" src={user.imgSrc} alt={user.name} />
-      <p className="userAge">{user.age}</p>
+      <h2 className="userName" style={nameStyle}>
+        {user.name}
+      </h2>
+      <img
+        className="userImg"
+        style={imgBorderStyle}
+        src={user.imgSrc}
+        alt={user.name}
+      />
+      <p className="userAge" style={ageStyle}>
+        {user.age}
+      </p>
     </article>
   );
 }
+
+// Реалізувати компонент (розмітка  + інлайн-стилі)
+const news = {
+  title: "Some news",
+  body: "Something hapenned",
+  isGood: true,
+};
+// гарна новина - зелена, не гарна - червона
 
 function Header() {
   return (
