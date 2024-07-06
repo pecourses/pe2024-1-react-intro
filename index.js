@@ -29,9 +29,29 @@ function App() {
       <Header />
       <main>
         <UserCard />
+        <News />
       </main>
       <Footer />
     </>
+  );
+}
+
+function News() {
+  const news = {
+    title: "Some news",
+    body: "Something hapenned",
+    isGood: false,
+  };
+
+  const newsStyle = {
+    border: `3px solid ${news.isGood ? "green" : "red"}`,
+  };
+
+  return (
+    <article style={newsStyle}>
+      <h2>{news.title}</h2>
+      <p>{news.body}</p>
+    </article>
   );
 }
 
