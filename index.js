@@ -29,39 +29,18 @@ root.render(<App />);
 //    імена властивослей - в camelCase
 //    backgroundColor: 'yellow',
 function App() {
-  const news = [
-    {
-      title: "Some news1",
-      body: "Something hapenned1",
-      isGood: false,
-    },
-    {
-      title: "Some news2",
-      body: "Something hapenned2",
-      isGood: true,
-    },
-  ];
-  return (
-    <>
-      <News newsItem={news[0]} />
-      <News newsItem={news[1]} />
-    </>
-  );
+  const isGreeting = false;
+  const userName = "Test";
+
+  return <Greeting isGreeting={isGreeting} userName={userName} />;
 }
-// News(news[0])
-// News(news[1])
-// <News newsItem={news[0]} /> => News({newsItem:news[0]})
 
-function News(props) {
-  const news = props.newsItem;
-  const newsStyle = {
-    border: `3px solid ${news.isGood ? "green" : "red"}`,
-  };
-
+// додати змінну з іменем користувача і прокинути в компонент
+function Greeting(props) {
+  const { isGreeting, userName } = props;
   return (
-    <article style={newsStyle}>
-      <h2>{news.title}</h2>
-      <p>{news.body}</p>
-    </article>
+    <div>
+      {isGreeting ? "Hello" : "Goodbye"}, {userName}
+    </div>
   );
 }
